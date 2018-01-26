@@ -12,7 +12,6 @@ RUN apk add --update alpine-sdk                                             && \
     su - abuild -c "cd ~/aports && git checkout 3.6-stable"                 && \
     su - abuild -c "cd ~/aports && git pull"                                && \
     su - abuild -c "cd ~/aports/community/php7 && abuild -r deps"                && \
-    su - abuild -c "mkdir -p ~/aports/testing/php7-redis"                   && \
     su - abuild -c "git config --global user.name \"UNKNOWN\""              && \
     su - abuild -c "git config --global user.email \"unknown@example.com\"" && \
     su - abuild -c "abuild-keygen -a -i"
