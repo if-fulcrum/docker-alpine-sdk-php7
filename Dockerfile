@@ -9,12 +9,10 @@ RUN apk add --update alpine-sdk                                             && \
     chmod a+w /var/cache/distfiles                                          && \
     echo "abuild ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/abuild           && \
     su - abuild -c "git clone git://git.alpinelinux.org/aports ~/aports"    && \
-    su - abuild -c "cd ~/aports && git checkout 3.4-stable"                 && \
+    su - abuild -c "cd ~/aports && git checkout 3.6-stable"                 && \
     su - abuild -c "cd ~/aports && git pull"                                && \
-    su - abuild -c "cd ~/aports/main/php7 && abuild -r deps"                && \
+    su - abuild -c "cd ~/aports/community/php7 && abuild -r deps"                && \
     su - abuild -c "mkdir -p ~/aports/testing/php7-redis"                   && \
-    su - abuild -c "cd ~/aports/testing/php7-redis && wget http://git.alpinelinux.org/cgit/aports/plain/testing/php7-redis/APKBUILD" && \
-    su - abuild -c "cd ~/aports/testing/php7-redis && abuild -r deps"       && \
     su - abuild -c "git config --global user.name \"UNKNOWN\""              && \
     su - abuild -c "git config --global user.email \"unknown@example.com\"" && \
     su - abuild -c "abuild-keygen -a -i"
