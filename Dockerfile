@@ -9,7 +9,7 @@ RUN apk add --update alpine-sdk                                             && \
     chmod a+w /var/cache/distfiles                                          && \
     echo "abuild ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/abuild           && \
     su - abuild -c "git clone git://git.alpinelinux.org/aports ~/aports"    && \
-    su - abuild -c "cd ~/aports && git checkout 3.6-stable"                 && \
+    su - abuild -c "cd ~/aports && git checkout 3.7-stable"                 && \
     su - abuild -c "cd ~/aports && git pull"                                && \
     su - abuild -c "cd ~/aports/community/php7 && abuild -r deps"                && \
     su - abuild -c "git config --global user.name \"UNKNOWN\""              && \
