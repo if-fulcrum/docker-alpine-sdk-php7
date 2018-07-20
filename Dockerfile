@@ -3,7 +3,7 @@ MAINTAINER IF Fulcrum "fulcrum@ifsight.net"
 
 ADD bump-php.sh /usr/local/bin/bump-php.sh
 
-RUN apk add --update alpine-sdk                                             && \
+RUN apk add --update alpine-sdk openssh-client                              && \
     adduser -D abuild -G abuild -s /bin/sh                                  && \
     mkdir -p /var/cache/distfiles                                           && \
     chmod a+w /var/cache/distfiles                                          && \
@@ -11,7 +11,7 @@ RUN apk add --update alpine-sdk                                             && \
     su - abuild -c "git clone git://git.alpinelinux.org/aports ~/aports"    && \
     su - abuild -c "cd ~/aports && git checkout 3.7-stable"                 && \
     su - abuild -c "cd ~/aports && git pull"                                && \
-    su - abuild -c "cd ~/aports/community/php7 && abuild -r deps"                && \
+    su - abuild -c "cd ~/aports/community/php7 && abuild -r deps"           && \
     su - abuild -c "git config --global user.name \"UNKNOWN\""              && \
     su - abuild -c "git config --global user.email \"unknown@example.com\"" && \
     su - abuild -c "abuild-keygen -a -i"
