@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -ex
+
 # This is to be volume mounted into an alpine docker box for building
 
 if [ $# -ne 1 ]; then
@@ -12,7 +14,7 @@ fi
 sudo chown -R $(whoami) ~/aports 
 
 # make sure we are up to date
-cd ~/aports && git pull
+cd ~/aports && git checkout 3.7-stable && git pull
 
 # we want to abump php7
 echo "Bumping PHP to $PHPVERSION"
