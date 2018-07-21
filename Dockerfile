@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.7
 MAINTAINER IF Fulcrum "fulcrum@ifsight.net"
 
 ADD bump-php.sh /usr/local/bin/bump-php.sh
